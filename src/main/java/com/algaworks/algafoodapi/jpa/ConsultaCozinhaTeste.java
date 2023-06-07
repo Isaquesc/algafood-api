@@ -1,6 +1,7 @@
 package com.algaworks.algafoodapi.jpa;
 
 import com.algaworks.algafoodapi.AlgafoodApiApplication;
+import com.algaworks.algafoodapi.domain.repository.CozinhaRepository;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -12,12 +13,11 @@ public class ConsultaCozinhaTeste {
                 .web(WebApplicationType.NONE)
                 .run(args);
 
-        applicationContext.getBean(ImplCozinha.class)
-                .listCozinha()
+       applicationContext.getBean(CozinhaRepository.class)
+                .listar()
                 .forEach(System.out::println);
 
-        System.out.println(applicationContext
-                .getBean(ImplCozinha.class)
+        System.out.println(applicationContext.getBean(CozinhaRepository.class)
                 .findById(1));
     }
 }
