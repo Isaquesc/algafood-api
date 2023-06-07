@@ -12,12 +12,12 @@ public class ConsultaCozinhaTeste {
                 .web(WebApplicationType.NONE)
                 .run(args);
 
-        applicationContext.getBean(CadastroCozinhaImpl.class)
+        applicationContext.getBean(ImplCozinha.class)
                 .listCozinha()
                 .forEach(System.out::println);
 
         System.out.println(applicationContext
-                .getBean(CadastroCozinhaImpl.class)
+                .getBean(ImplCozinha.class)
                 .findById(1));
     }
 }

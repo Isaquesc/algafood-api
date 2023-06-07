@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Component
-public class CadastroCozinhaImpl {
+public class ImplCozinha {
 
     @PersistenceContext
     private EntityManager manager; // gerenciador de persistencia, é o responsavel pela intermediação dos comando pelas tradução SQL
@@ -27,6 +27,12 @@ public class CadastroCozinhaImpl {
     @Transactional
     public Cozinha adicionarCozinha(Cozinha cozinha){
         return manager.merge(cozinha);
+    }
+
+    @Transactional
+    public void remover(Cozinha cozinha){
+        Cozinha cozinhaManager = findById(cozinha.getId());
+        manager.remove(cozinhaManager);
     }
 
 }
